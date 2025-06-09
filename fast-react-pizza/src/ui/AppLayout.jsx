@@ -8,14 +8,16 @@ function AppLayout() {
   const isLoading = navigation.state === 'loading';
 
   return (
-    <div className="layout">
+    /* prettier-ignore */
+    <div className="grid-rows-[auto_1fr_auto] grid h-screen">
       {isLoading && <Loader />}
 
       <Header />
-
-      <main>
-        <Outlet />
-      </main>
+      <div className='overflow-auto'>
+        <main className='max-w-3xl mx-auto'>
+          <Outlet />
+        </main>
+      </div>
 
       <CartOverview />
     </div>

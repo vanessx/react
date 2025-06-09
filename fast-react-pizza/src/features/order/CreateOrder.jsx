@@ -5,7 +5,7 @@ import { createOrder } from '../../services/apiRestaurant';
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
-    str
+    str,
   );
 
 const fakeCart = [
@@ -60,12 +60,24 @@ function CreateOrder() {
         <div>
           <label>Address</label>
           <div>
-            <input type="text" name="address" required />
+            <input
+              /* prettier-ignore */
+              className="rounded-full border border-stone-200 px-4 py-2
+              text-sm transition-all duration-300 placeholder:text-stone-400
+              focus:outline-none focus:ring focus:ring-yellow-500 w-full
+              md:px-6 md:py-3"
+              type="text"
+              name="address"
+              required
+            />
           </div>
         </div>
 
         <div>
           <input
+            /* prettier-ignore */
+            className="h-6 w-6 accent-yellow-500 focus:outline-none focus:ring 
+            focus:ring-yellow-500 focus:ring-offset-1"
             type="checkbox"
             name="priority"
             id="priority"
@@ -74,10 +86,16 @@ function CreateOrder() {
           />
           <label htmlFor="priority">Want to yo give your order priority?</label>
         </div>
-
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <button disabled={isSubmitting}>
+          <button
+            disabled={isSubmitting}
+            /* prettier-ignore */
+            className="inline-block bg-yellow-500 px-4 py-3 font-semibold 
+            uppercase text-stone-800 tracking-wide rounded-full hover:bg-yellow-400
+            transition-colors duration-300 focus:outline-none focus:ring
+            focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed"
+          >
             {isSubmitting ? 'Placing order...' : 'Order now'}
           </button>
         </div>
